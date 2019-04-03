@@ -31,12 +31,14 @@ class GameGrid():
             if done:
                 self.matrix = logic.add_two(self.matrix)
                 done = False
+
+                # Check if game is completed
                 if logic.game_state(self.matrix) == 'win':
                     done = True
-                    print('Game Completed')
                 if logic.game_state(self.matrix) == 'lose':
                     done = True
-            return done
+
+            return self.matrix, logic.reward(self.matrix), done, ""
 
     def generate_next(self):
         index = (self.gen(), self.gen())
@@ -67,6 +69,9 @@ class GameGrid():
         print()
         for i in self.matrix:
             print(i)
+
+    def reward(self):
+        return logic.reward(self.matrix)
 
 
 gamegrid = GameGrid()

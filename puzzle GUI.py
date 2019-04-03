@@ -103,6 +103,7 @@ class GameGrid(Frame):
 
     def key_down(self, event):
         key = repr(event.char)
+        print(self.actions)
         if event.keycode == 114:
             self.reset()
             return
