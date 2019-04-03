@@ -138,4 +138,4 @@ def reward(game):
     for i in game:
         if max(i) > maxValue:
             maxValue = max(i)
-    return maxValue
+    return maxValuew
