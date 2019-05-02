@@ -5,7 +5,6 @@ import constants as c
 
 class GameGrid():
     def __init__(self):
-        # self.gamelogic = gamelogic
         self.commands = {c.KEY_UP: logic.up, c.KEY_DOWN: logic.down,
                          c.KEY_LEFT: logic.left, c.KEY_RIGHT: logic.right,
                          c.KEY_UP_ALT: logic.up, c.KEY_DOWN_ALT: logic.down,
@@ -14,7 +13,6 @@ class GameGrid():
 
         self.actions = [c.KEY_UP, c.KEY_DOWN, c.KEY_RIGHT, c.KEY_LEFT]
         self.grid_cells = []
-        #self.init_grid()
         self.init_matrix()
 
     def gen(self):
@@ -26,6 +24,9 @@ class GameGrid():
         self.matrix = logic.add_two(self.matrix)
 
     def step(self, key):
+        if isinstance(key, int):
+            key = self.actions[key]
+
         if key in self.commands:
             self.matrix, done = self.commands[key](self.matrix)
             if done:
@@ -72,6 +73,9 @@ class GameGrid():
 
     def reward(self):
         return logic.reward(self.matrix)
+
+    def highest_score(self):
+        return logic.highest_score(self.matrix)
 
 
 gamegrid = GameGrid()

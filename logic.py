@@ -138,4 +138,13 @@ def reward(game):
     for i in game:
         if max(i) > maxValue:
             maxValue = max(i)
-    return maxValuew
+    return maxValue
+
+def highest_score(mat):
+    score = 0
+    for i in mat:
+        for j in i:
+            if score < j:
+                score = j
+
+    return score
