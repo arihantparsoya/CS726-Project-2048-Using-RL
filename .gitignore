@@ -3,3 +3,8 @@
 
 # python
 *.pyc
+
+
+.ipynb_checkpoints
+log
+data
