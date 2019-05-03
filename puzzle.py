@@ -77,10 +77,3 @@ class GameGrid():
 
     def highest_score(self):
         return logic.highest_score(self.matrix)
-
-
-gamegrid = GameGrid()
-gamegrid.reward()
-#print(gamegrid.display_state())
-#gamegrid.perform_action(c.KEY_UP)
-#print(gamegrid.display_state())
