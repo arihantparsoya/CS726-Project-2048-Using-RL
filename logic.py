@@ -133,7 +133,7 @@ def right(game):
     game = reverse(game)
     return (game, done)
 
-def reward(game):
+def reward(game, alpha = 0.99):
     maxValue = 0
     totalValue = 0
     for i in game:
@@ -141,10 +141,7 @@ def reward(game):
             maxValue = max(i)
         for j in i:
             totalValue += j
-
-    alpha = 0.99
-    beta = 1 - alpha
-    return float(maxValue)*alpha + totalValue*beta
+    return float(maxValue)*alpha + totalValue*(1 - alpha)
 
 def highest_score(mat):
     score = 0
@@ -152,5 +149,4 @@ def highest_score(mat):
         for j in i:
             if score < j:
                 score = j
-
     return score

@@ -1,5 +1,4 @@
 import random
-
 import logic
 import constants as c
 
@@ -23,7 +22,7 @@ class GameGrid():
         self.matrix = logic.add_two(self.matrix)
         self.matrix = logic.add_two(self.matrix)
 
-    def step(self, key):
+    def step(self, key, alpha = 0.99):
         if isinstance(key, int):
             key = self.actions[key]
 
@@ -39,7 +38,7 @@ class GameGrid():
                 if logic.game_state(self.matrix) == 'lose':
                     done = True
 
-            return self.matrix, logic.reward(self.matrix), done, ""
+            return self.matrix, logic.reward(self.matrix, alpha), done, ""
 
     def generate_next(self):
         index = (self.gen(), self.gen())
