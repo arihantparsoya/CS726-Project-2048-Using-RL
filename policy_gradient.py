@@ -120,8 +120,8 @@ class PolicyGradient:
             self.discounted_episode_rewards_norm = tf.placeholder(tf.float32, [None, ], name="actions_value")
 
         # Initialize parameters
-        units_layer_1 = 10
-        units_layer_2 = 10
+        units_layer_1 = 200
+        units_layer_2 = 100
         units_output_layer = self.n_y
         with tf.name_scope('parameters'):
             W1 = tf.get_variable("W1", [units_layer_1, self.n_x], initializer = tf.contrib.layers.xavier_initializer(seed=1))

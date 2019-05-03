@@ -135,10 +135,16 @@ def right(game):
 
 def reward(game):
     maxValue = 0
+    totalValue = 0
     for i in game:
         if max(i) > maxValue:
             maxValue = max(i)
-    return maxValue
+        for j in i:
+            totalValue += j
+
+    alpha = 0.99
+    beta = 1 - alpha
+    return float(maxValue)*alpha + totalValue*beta
 
 def highest_score(mat):
     score = 0

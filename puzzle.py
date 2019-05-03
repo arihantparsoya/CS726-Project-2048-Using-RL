@@ -65,6 +65,7 @@ class GameGrid():
     def reset(self):
         # resets the game to initial state
         self.init_matrix()
+        return self.matrix
 
     def display_state(self):
         print()
@@ -79,6 +80,7 @@ class GameGrid():
 
 
 gamegrid = GameGrid()
+gamegrid.reward()
 #print(gamegrid.display_state())
 #gamegrid.perform_action(c.KEY_UP)
 #print(gamegrid.display_state())
